@@ -73,3 +73,15 @@ class imdb1():
         if count is not None:
             urls = urls[:count]
         self._download_images(urls , outpath)
+    
+
+    def tmdb_poster_name(self,name, count=1, outpath='.'):
+        self.name = name
+        ia = imdb.IMDb()
+        items = ia.search_movie(name)
+        self.imdb_id = "tt" + str(items[0].movieID)
+        #print(items[0]['title'] + " : " + id )
+        urls = self.get_poster_urls(self.imdb_id)
+        if count is not None:
+            urls = urls[:count]
+        self._download_images(urls, outpath)
