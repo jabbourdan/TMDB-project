@@ -63,3 +63,13 @@ class imdb1():
             poster_urls.append(url) 
 
         return poster_urls
+
+    def tmdb_poster_id(self,imdbid, count=1, outpath= "." ):
+        ia = imdb.IMDb()
+        imdbidnum = imdbid[2:]  
+        self.name =  ia.get_movie(imdbidnum)
+        self.imdb_id = imdbid
+        urls = self.get_poster_urls(self.imdb_id)
+        if count is not None:
+            urls = urls[:count]
+        self._download_images(urls , outpath)
