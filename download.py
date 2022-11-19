@@ -25,3 +25,15 @@ class imdb1():
     def _get_json(self,url):
         r = requests.get(url)
         return r.json()
+
+    def _download_images(self,urls, path='.'):
+        """download all images in list 'urls' to 'path' """
+
+        for nr, url in enumerate(urls):
+            r = requests.get(url)
+            filetype = r.headers['content-type'].split('/')[-1]
+            filename= str(self.name) + '{0}.{1}'.format(nr+1,filetype)
+            #filename = str(self.name) + 'format(nr+1,filetype) 
+            filepath = os.path.join(self.content_temp_path , filename)
+            with open(filepath,'wb') as w:
+                w.write(r.content)
