@@ -17,3 +17,14 @@ class mongoDB():
             return self.database
         except Exception as e:
             print("error in mongoDB connection ")
+            
+    def upload(self):
+        for filename in os.listdir("./temp_content"):
+            with open(os.path.join("./temp_content/", filename), 'r') as f:
+                #db = mongo_conn()
+                file_location = "./temp_content/" + filename
+                file_data = open(file_location, "rb")
+                data = file_data.read()
+                fs = gridfs.GridFS(self.db)
+                fs.put(data, filename = filename)
+                print("upload completed")
