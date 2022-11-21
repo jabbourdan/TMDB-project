@@ -49,3 +49,10 @@ class mongoDB():
         db_update_response=mycol.update_one(myquery, new_values)
         output = {'Status': 'Successfully Updated' if db_update_response.modified_count > 0 else "Nothing was updated."}
         return output
+
+    def search_image_file_id_by_name(self, movie_name):
+        if(self.search(movie_name)):
+            return self.fs.find_one({"filename": movie_name + '.jpeg'})._id
+
+        else:
+            print("The image not her")
