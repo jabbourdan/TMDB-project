@@ -28,3 +28,13 @@ class mongoDB():
                 fs = gridfs.GridFS(self.db)
                 fs.put(data, filename = filename)
                 print("upload completed")
+                
+    def search(self,filename):
+        filename = filename + '.jpeg'
+        mycol = self.db["fs.files"]
+        statment = False 
+        for x in mycol.find():
+            if(filename == x['filename']):
+                statment = True
+                return statment 
+        return statment
