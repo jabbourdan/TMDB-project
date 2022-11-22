@@ -21,6 +21,4 @@ def search():
             mongo.upload()
             mongo.read_data(name_movie + '1')
         return "The image has downloaded "
-        #return mongo.read_data(name_movie)
-        #return mongo.read_data(name_movie + '1')
-        
+    return render_template("insert.html")
