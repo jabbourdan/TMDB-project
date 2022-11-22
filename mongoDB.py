@@ -56,3 +56,13 @@ class mongoDB():
 
         else:
             print("The image not her")
+            
+    def read_data(self,filename):
+
+        if(self.search(filename)):
+            image_bin = self.fs.get_last_version(filename + '.jpeg').read()
+            with open(f'{filename}.jpeg','wb') as outfile:
+                image = outfile.write(image_bin)
+            return image
+        else:
+            return "The image not found"
