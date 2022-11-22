@@ -66,3 +66,12 @@ class mongoDB():
             return image
         else:
             return "The image not found"
+
+    def delete(self,filename):
+        mycol = self.db["fs.files"]
+        if(filename == 'all'):
+            mycol.delete_many({})
+            return "All the images has deleted"
+        else:
+            mycol.delete_many({"filename" : filename + '.jpeg'})
+            return "The " + filename + ' deleted'
