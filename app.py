@@ -45,3 +45,10 @@ def update():
         val_to_update = update['val_to_update']
         return mongo.update(movie_name,key_to_update,val_to_update)
     return render_template("update.html") 
+
+@app.route("/", methods=['GET','POST'])
+def home():
+    return render_template("base.html") 
+
+if __name__ == '__main__':
+    app.run(port=5001,host = '0.0.0.0' , debug = True) 
