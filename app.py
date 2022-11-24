@@ -22,3 +22,16 @@ def search():
             mongo.read_data(name_movie + '1')
         return "The image has downloaded "
     return render_template("insert.html")
+
+@app.route("/delete", methods=['GET','POST'])
+def delete():
+    if(request.method == 'POST'):
+        dele = request.form
+        print(dele)
+        name = dele['name']
+        #print(arg)
+        if(mongo.search(name) or name == "all"):
+            return mongo.delete(name)
+        else:
+            return "There is no image like this name "
+    return render_template("delete.html")
