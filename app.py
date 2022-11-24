@@ -35,3 +35,13 @@ def delete():
         else:
             return "There is no image like this name "
     return render_template("delete.html")
+
+@app.route("/update", methods=['GET','POST'])
+def update():
+    if(request.method == 'POST'):
+        update = request.form
+        movie_name = update['movie_name']
+        key_to_update = update['key_to_update']
+        val_to_update = update['val_to_update']
+        return mongo.update(movie_name,key_to_update,val_to_update)
+    return render_template("update.html") 
