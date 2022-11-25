@@ -5,7 +5,7 @@ import requests
 
 from config import TMDB_API_API_V3_auth
 
-def size_str_to_int(self,x):
+def size_str_to_int(x):
         return float("inf") if x == 'original' else int(x[1:])
 content_temp_path = "./temp_content/"
 
@@ -21,18 +21,22 @@ class imdb1():
         self.imdb_id = ''
         self.name = ''
         self.content_temp_path = "./temp_content/"    
-        
+    
+    def size_str_to_int(self,x):
+            return float("inf") if x == 'original' else int(x[1:])
+
     def _get_json(self,url):
         r = requests.get(url)
         return r.json()
 
-    def _download_images(self,urls, path='.'):
+    def _download_images(self,urls,path='.'):
         """download all images in list 'urls' to 'path' """
 
         for nr, url in enumerate(urls):
             r = requests.get(url)
             filetype = r.headers['content-type'].split('/')[-1]
-            filename= str(self.name) + '{0}.{1}'.format(nr+1,filetype)
+            ##filename= str(self.name) + '{0}.{1}'.format(nr+1,filetype)
+            filename = '{0}.{1}'.format(self.name, filetype)
             #filename = str(self.name) + 'format(nr+1,filetype) 
             filepath = os.path.join(self.content_temp_path , filename)
             with open(filepath,'wb') as w:
@@ -64,23 +68,17 @@ class imdb1():
 
         return poster_urls
 
-    def tmdb_poster_id(self,imdbid, count=1, outpath= "." ):
-        ia = imdb.IMDb()
-        imdbidnum = imdbid[2:]  
-        self.name =  ia.get_movie(imdbidnum)
-        self.imdb_id = imdbid
-        urls = self.get_poster_urls(self.imdb_id)
-        if count is not None:
-            urls = urls[:count]
-        self._download_images(urls , outpath)
-    
-
     def tmdb_poster_name(self,name, count=1, outpath='.'):
         self.name = name
         ia = imdb.IMDb()
-        items = ia.search_movie(name)
+        condition=True
+        while (condition):
+            items = ia.search_movie(name)
+            if(len(items)==0):
+                items = ia.search_movie(name)
+            else:
+                condition=False
         self.imdb_id = "tt" + str(items[0].movieID)
-        #print(items[0]['title'] + " : " + id )
         urls = self.get_poster_urls(self.imdb_id)
         if count is not None:
             urls = urls[:count]
