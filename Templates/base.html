@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+    <html lang="en">
+        <head>
+            <title>Update A Movie Poster </title>
+        </head>
+        <body>
+            <div id="container">
+                <div class="form">
+                    <form action="/update" method="post">
+                        <div id="input-1">
+                            <label for="movie_name">Enter Movie Name:</label>
+                            <input type="text" name="movie_name" id='movie_name' required>
+                            
+                            <label for="key_to_update">Enter a key to update:</label>
+                            <input type="text" name="key_to_update" id='key_to_update' required>
+                        
+                            <label for=" val_to_update">Enter a val to update:</label>
+                            <input type="text" name="val_to_update" id='val_to_update' required>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div id="div-submit">
+                            <input type="submit" value="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </body>
+    </html>
