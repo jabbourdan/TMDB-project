@@ -20,7 +20,7 @@ def search():
         else:
             imdb = imdb1()
             imdb.tmdb_poster_name(name_movie)
-            mongo.upload()
+            mongo.upload(name_movie + '.jpeg')
         the_movies = "./temp_content/" + name_movie + ".jpeg"
         with open(the_movies, 'rb') as bites:
             return send_file(
