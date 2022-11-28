@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <title>{% block title %}Home{% endblock %}</title>
+
+    <style>
+        .gfg {
+            margin: 3%;
+            position: relative;
+        }
+  
+        .first-txt {
+            position: absolute;
+            top: 80px;
+            left: 50px;
+        }
+  
+        .second-txt {
+            position: absolute;
+            bottom: 20px;
+            left: 1300px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" id="search" href="/search">search</a>
+            <a class="nav-item nav-link" id="delete" href="/delete">delete</a>
+            <a class="nav-item nav-link" id="update" href="/update">update</a>
+        </div>
+      </div>
+    
+    </nav>
+    <div class="gfg"></div>
+        <img  src="https://res.cloudinary.com/people-matters/image/upload/fl_immutable_cache,w_624,h_351,q_auto,f_auto/v1517845732/1517845731.jpg" style="max-width:1800px;width:100%">
+        <h3 class="first-txt">
+            Movie Posters Project
+        </h3>
+        <h3 class="second-txt">
+            A project in AWS/restart
+        </h3>
+    </div>
+  </body>
+</html>
