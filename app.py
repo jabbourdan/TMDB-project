@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,send_file
+import io
 
 from download import imdb1
 from mongoDB import mongoDB
@@ -19,8 +20,13 @@ def search():
             imdb = imdb1()
             imdb.tmdb_poster_name(name_movie)
             mongo.upload()
-            mongo.read_data(name_movie + '1')
-        return "The image has downloaded "
+        the_movies = "./temp_content/" + name_movie + ".jpeg"
+        with open(the_movies, 'rb') as bites:
+            return send_file(
+                    io.BytesIO(bites.read()),
+                    mimetype='image/jpg'
+            )
+            
     return render_template("insert.html")
 
 @app.route("/delete", methods=['GET','POST'])
