@@ -4,6 +4,7 @@ import io
 from download import imdb1
 from mongoDB import mongoDB
 
+
 app = Flask(__name__)
 #mongo = mongoDB("localhost", 27017)
 mongo = mongoDB("db_host", 27017)
@@ -15,7 +16,7 @@ def search():
         data = request.form
         name_movie = data['name']
         if(mongo.search(name_movie)):
-            mongo.read_data(name_movie)
+            pass
         else:
             imdb = imdb1()
             imdb.tmdb_poster_name(name_movie)
