@@ -18,7 +18,8 @@ class mongoDB():
         except Exception as e:
             print("error in mongoDB connection ")
             
-    def upload(self):
+    def upload(self,filename):
+        os.listdir("./temp_content")
         with open(os.path.join("./temp_content/", filename), 'r') as f:
             file_location = "./temp_content/" + filename
             file_data = open(file_location, "rb")
