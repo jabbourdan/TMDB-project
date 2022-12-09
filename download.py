@@ -64,6 +64,16 @@ class imdb1():
             poster_urls.append(url) 
 
         return poster_urls
+    
+        
+        
+    def get_movie_id(self):
+        res = self._get_json(f'https://api.themoviedb.org/3/search/movie?api_key={self.KEY}&query={self.movie_name}')
+        first_result = res['results']
+        #print('Response =>', first_result)
+        #self.movie_name = first_result[0]['original_title']           
+        self.movie_id = first_result[0]['id']
+        return self.movie_id
 
     def tmdb_poster_name(self,name, count=1, outpath='.'):
         self.name = name
