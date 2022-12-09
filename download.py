@@ -30,17 +30,13 @@ class imdb1():
         return r.json()
 
     def _download_images(self,urls,path='.'):
-        """download all images in list 'urls' to 'path' """
-
-        for nr, url in enumerate(urls):
-            r = requests.get(url)
-            filetype = r.headers['content-type'].split('/')[-1]
-            ##filename= str(self.name) + '{0}.{1}'.format(nr+1,filetype)
-            filename = '{0}.{1}'.format(self.name, filetype)
-            #filename = str(self.name) + 'format(nr+1,filetype) 
-            filepath = os.path.join(self.content_temp_path , filename)
-            with open(filepath,'wb') as w:
-                w.write(r.content)
+                
+        r = requests.get(urls[0])
+        filetype = r.headers['content-type'].split('/')[-1]
+        filename = '{0}.{1}'.format(self.name, filetype)
+        filepath = os.path.join(self.content_temp_path , filename)
+        with open(filepath,'wb') as w:
+            w.write(r.content)
     def get_poster_urls(self,imdbid):
         """ return image urls of posters for IMDB id
             returns all poster images from 'themoviedb.org'. Uses the
