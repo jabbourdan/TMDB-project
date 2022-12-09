@@ -37,6 +37,7 @@ class imdb1():
         filepath = os.path.join(self.content_temp_path , filename)
         with open(filepath,'wb') as w:
             w.write(r.content)
+        
     def get_poster_urls(self,imdbid):
         """ return image urls of posters for IMDB id
             returns all poster images from 'themoviedb.org'. Uses the
@@ -50,11 +51,11 @@ class imdb1():
         base_url = config['images']['base_url']
         sizes = config['images']['poster_sizes']
 
-        """
-            'sizes' should be sorted in ascending order, so
-                max_size = sizes[-1]
-            should get the largest size as well.        
-        """
+       
+        #sizes' should be sorted in ascending order, so
+        self.max_size = sizes[-1]
+        #should get the largest size as well.        
+       
         posters = self._get_json(self.IMG_PATTERN.format(key=self.KEY,imdbid=imdbid))['posters']
         poster_urls = []
         for poster in posters:
