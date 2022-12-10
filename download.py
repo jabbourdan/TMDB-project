@@ -18,7 +18,7 @@ class imdb1():
         self.config = requests.get(self.url).json()
         self.sizes = self.config['images']['poster_sizes']
         self.max_size = max(self.sizes, key=size_str_to_int)
-        self.imdb_id = ''
+        self.movie_id = ''
         self.name = ''
         self.content_temp_path = "./temp_content/"    
     
@@ -78,8 +78,7 @@ class imdb1():
     def tmdb_poster_name(self,name, count=1, outpath='.'):
         self.name = name
         self.get_movie_id()
-        self.imdb_id = "tt" + str(items[0].movieID)
-        urls = self.get_poster_urls(self.imdb_id)
+        urls = self.get_poster_urls(self.movie_id)
         if count is not None:
             urls = urls[:count]
         self._download_images(urls, outpath)
