@@ -77,14 +77,7 @@ class imdb1():
 
     def tmdb_poster_name(self,name, count=1, outpath='.'):
         self.name = name
-        ia = imdb.IMDb()
-        for i in range(0,10):
-            items = ia.search_movie(name)
-            if(len(items)==0):
-                items = ia.search_movie(name)
-                i = i + 1
-            else:
-                break
+        self.get_movie_id()
         self.imdb_id = "tt" + str(items[0].movieID)
         urls = self.get_poster_urls(self.imdb_id)
         if count is not None:
