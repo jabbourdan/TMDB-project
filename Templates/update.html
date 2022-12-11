@@ -1,30 +1,91 @@
-<!DOCTYPE HTML>
-    <html lang="en">
-        <head>
-            <title>Update A Movie Poster </title>
-        </head>
-        <body>
-            <div id="container">
-                <div class="form">
-                    <form action="/update" method="post">
-                        <div id="input-1">
-                            <label for="movie_name">Enter Movie Name:</label>
-                            <input type="text" name="movie_name" id='movie_name' required>
-                            
-                            <label for="key_to_update">Enter a key to update:</label>
-                            <input type="text" name="key_to_update" id='key_to_update' required>
-                        
-                            <label for=" val_to_update">Enter a val to update:</label>
-                            <input type="text" name="val_to_update" id='val_to_update' required>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div id="div-submit">
-                            <input type="submit" value="submit">
-                        </div>
-                    </form>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for poster</title>
+    <meta name="author" content="David Grzyb">
+    <meta name="description" content="">
+
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+    />
+
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    crossorigin="anonymous"
+    />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+        .font-family-karla {
+            font-family: karla;
+        }
+
+    </style>
+</head>
+<body class="bg-white font-family-karla h-screen">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+          <div class="navbar-nav">
+              <a class="nav-item nav-link" id="search" href="/">Home</a>
+              <a class="nav-item nav-link" id="search" href="/search">Search</a>
+              <a class="nav-item nav-link" id="delete" href="/delete">Delete</a>
+              <a class="nav-item nav-link" id="update" href="/update">Update</a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="w-full flex flex-wrap">
+
+        <div class="w-full md:w-1/2 flex flex-col">
+
+            <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
+                <a href="#" class="bg-black text-white font-bold text-xl p-4">TMDB&DB</a>
             </div>
-        </body>
-    </html>
+
+            <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
+                <p class="text-center text-3xl">Enter a movie name to get poster</p>
+                <form action="/update" method="post">
+                    <div id="input-1">
+                        <label for="name">Move Name</label>
+                        <input type="text" name="movie_name" id="movie_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" required>
+                        
+                        <label for="key_to_update">Enter a key to update:</label>
+                        <input type="text" name="key_to_update" id='key_to_update' class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" required>
+
+                        <label for=" val_to_update">Enter a val to update:</label>
+                        <input type="text" name="val_to_update" id='val_to_update' class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+                    <br>
+                    <br>
+                    <div id="div-submit">
+                        <input type="submit" value="submit" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
+                    </div>
+                        
+                </form>
+            </div>
+        </div>
+
+        <div class="w-1/2 shadow-2xl">
+            <img class="object-cover w-full h-screen hidden md:block" src="https://source.unsplash.com/IXUM4cJynP0">
+        </div>
+    </div>
+
+</body>
+</html>
