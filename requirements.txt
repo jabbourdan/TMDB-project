@@ -1,0 +1,4 @@
+IMDbPY
+requests
+pymongo
+flask
