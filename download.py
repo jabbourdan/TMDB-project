@@ -19,7 +19,7 @@ class imdb1():
         self.sizes = self.config['images']['poster_sizes']
         self.max_size = max(self.sizes, key=size_str_to_int)
         self.movie_id = ''
-        self.name = ''
+        self.movie_name = ''
         self.content_temp_path = "./temp_content/"    
     
     def size_str_to_int(self,x):
@@ -33,7 +33,7 @@ class imdb1():
                 
         r = requests.get(urls[0])
         filetype = r.headers['content-type'].split('/')[-1]
-        filename = '{0}.{1}'.format(self.name, filetype)
+        filename = '{0}.{1}'.format(self.movie_name, filetype)
         filepath = os.path.join(self.content_temp_path , filename)
         with open(filepath,'wb') as w:
             w.write(r.content)
@@ -75,8 +75,8 @@ class imdb1():
         self.movie_id = first_result[0]['id']
         return self.movie_id
 
-    def tmdb_poster_name(self,name, count=1, outpath='.'):
-        self.name = name
+    def tmdb_poster_name(self,movie_name, count=1, outpath='.'):
+        self.movie_name = movie_name
         self.get_movie_id()
         urls = self.get_poster_urls(self.movie_id)
         if count is not None:
