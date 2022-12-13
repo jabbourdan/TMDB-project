@@ -63,3 +63,7 @@
 - ⛲ example of search for The Matrix :
 
 ![example of search](https://user-images.githubusercontent.com/111487226/207348702-457b4f0d-ecb3-4d3f-8b79-486d9e04569b.png)
+
+- 🛞 Output:
+
+![example of photo](https://user-images.githubusercontent.com/111487226/207348873-388a9889-03de-4861-8446-53a2ab2027da.png)
