@@ -58,8 +58,4 @@
 
 - 👨‍💻 You will see this page you can choise if you want to search for a new posters ,delete a poster in data base that you searched for and update a photo name in database
 
-![Screenshot 2022-12-06 003131](https://user-images.githubusercontent.com/111487226/205934544-949813e7-a366-43e6-9e98-ea4f5a2c7178.png)
-
-note : sometimes the search_movie function line (75) dont work its a function in imdb libary that you can get a move name and ID . Example of output after searching for a movie :
-
-![example](https://user-images.githubusercontent.com/111487226/205935388-0967c726-e2e2-4d68-8fb3-b53ff7c086a7.png)
+![main page1](https://user-images.githubusercontent.com/111487226/207348363-19d3c2bb-919d-4a22-81c1-0ea2e54e244c.png)
