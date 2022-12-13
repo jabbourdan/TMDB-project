@@ -59,3 +59,7 @@
 - 👨‍💻 You will see this page you can choise if you want to search for a new posters ,delete a poster in data base that you searched for and update a photo name in database
 
 ![main page1](https://user-images.githubusercontent.com/111487226/207348363-19d3c2bb-919d-4a22-81c1-0ea2e54e244c.png)
+
+- ⛲ example of search for The Matrix :
+
+![example of search](https://user-images.githubusercontent.com/111487226/207348702-457b4f0d-ecb3-4d3f-8b79-486d9e04569b.png)
