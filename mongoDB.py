@@ -5,12 +5,15 @@ from pymongo import MongoClient
 
 
 class mongoDB():
+    #the function take the ip and the port of the mongo 
     def __init__(self,ip,port):
         self.db = self.mongo_conn(ip,port)
         self.database 
         self.fs = gridfs.GridFS(self.db)
         
+    #connect to the mongoDB 
     def mongo_conn(self,ip ,port):
+        #try if doesnt work return error meesage
         try:
             conn = MongoClient(ip ,port)
             self.database = conn["movies"]
